@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post — Rajeev Kumar Gupta</title>
+  <meta name="description" content="A blog post by Rajeev Kumar Gupta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <a class="nav-brand" href="index.html">Rajeev<span> Kumar Gupta</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#newsletter">Newsletter</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+          <span id="themeLabel">Dark</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container-narrow">
+      <span class="post-category" id="postCategory">Category</span>
+      <h1 id="postTitle">Loading...</h1>
+      <div class="post-hero-meta">
+        <span>✍️ Rajeev Kumar Gupta</span>
+        <span>📅 <span id="postDate"></span></span>
+        <span>⏱ <span id="postReadTime"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post Emoji Banner -->
+  <div style="background: var(--accent-light); text-align: center; padding: 48px 0; font-size: 5rem; border-bottom: 1px solid var(--border);" id="postEmoji">
+    📖
+  </div>
+
+  <!-- Post Content -->
+  <article class="post-content">
+    <div class="container-narrow">
+      <div class="post-body" id="postBody">
+        <p>Loading post content...</p>
+      </div>
+
+      <!-- Tags -->
+      <div class="post-tags-row" id="postTagsRow"></div>
+
+      <!-- Navigation -->
+      <nav class="post-nav">
+        <a href="#" id="prevPost">
+          <div class="label">← Previous</div>
+          <div class="title">...</div>
+        </a>
+        <a href="#" id="nextPost" class="next">
+          <div class="label">Next →</div>
+          <div class="title">...</div>
+        </a>
+      </nav>
+
+      <!-- Back to Blog -->
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="index.html" class="btn btn-outline">← Back to All Posts</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer Newsletter -->
+  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 56px 0;">
+    <div class="container-narrow" style="text-align: center;">
+      <h2 style="font-size:1.8rem; margin-bottom:10px;">Enjoyed this post?</h2>
+      <p style="color: var(--text-muted); margin-bottom:24px;">Subscribe to get new stories delivered to your inbox.</p>
+      <form class="newsletter-form" style="max-width:400px; margin: 0 auto;">
+        <input type="email" placeholder="your@email.com" required />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Rajeev Kumar Gupta · <a href="index.html">Back to Blog</a></p>
+        <div class="social-links">
+          <span class="social-link" title="Twitter">𝕏</span>
+          <span class="social-link" title="Instagram">📸</span>
+          <span class="social-link" title="LinkedIn">in</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
