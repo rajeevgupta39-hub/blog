@@ -45,7 +45,7 @@ const posts = [
     category: "Travel",
     date: "March 20, 2026",
     readTime: "6 min read",
-    tags: ["Travel", "Mountains", "Adventure"],
+    tags: ["Travel"],
     emoji: "🏔️",
     slug: "journey-himalayas"
   },
@@ -56,7 +56,7 @@ const posts = [
     category: "Personal",
     date: "March 12, 2026",
     readTime: "8 min read",
-    tags: ["Life", "Personal", "Growth"],
+    tags: ["Personal"],
     emoji: "✨",
     slug: "life-lessons-at-30"
   },
@@ -67,7 +67,7 @@ const posts = [
     category: "Lifestyle",
     date: "March 5, 2026",
     readTime: "5 min read",
-    tags: ["Mindfulness", "Lifestyle", "Wellness"],
+    tags: ["Personal"],
     emoji: "🌿",
     slug: "art-of-slowing-down"
   },
@@ -84,23 +84,12 @@ const posts = [
   },
   {
     id: 5,
-    title: "Morning Routines That Changed My Life",
-    excerpt: "It started with just waking up 30 minutes earlier. What followed was a domino effect that transformed my energy, focus, and relationship with each day.",
-    category: "Health",
-    date: "February 18, 2026",
-    readTime: "7 min read",
-    tags: ["Health", "Habits", "Morning"],
-    emoji: "🌅",
-    slug: "morning-routines"
-  },
-  {
-    id: 6,
     title: "Why I Started Writing",
     excerpt: "Writing was never something I thought I'd do publicly. It felt too vulnerable, too exposed. But then I discovered it wasn't about being read — it was about being honest.",
     category: "Personal",
     date: "February 8, 2026",
     readTime: "5 min read",
-    tags: ["Writing", "Personal", "Creativity"],
+    tags: ["Personal"],
     emoji: "✍️",
     slug: "why-i-started-writing"
   }
@@ -321,25 +310,6 @@ function loadPost() {
       <p>There's something perfect about eating bhel puri — puffed rice, vegetables, tamarind chutney — standing at the edge of the Arabian Sea as the sun goes down. The tanginess of the chutney, the crunch of the sev, the salt air. This is Mumbai at its most romantic.</p>
       <hr>
       <p>I could write an entire book about Mumbai's street food. Maybe I will.</p>
-    `,
-    'morning-routines': `
-      <p>For most of my adult life, mornings were a negotiation. The alarm would go off, I'd promise myself five more minutes, and the next thing I knew, I was late, rushing, and already behind before the day had properly begun.</p>
-      <p>Then, about two years ago, I decided to try something different.</p>
-      <h2>The First Change: Waking Up at 6am</h2>
-      <p>I started small. Just thirty minutes earlier than usual. No grand program, no cold showers, no rigid protocol. Just thirty quiet minutes before anyone else in my household was awake.</p>
-      <p>The silence alone was transformative. There is a quality to early-morning quiet that afternoon quiet doesn't have. It feels unearned, like you've arrived somewhere before the world has had a chance to crowd it.</p>
-      <h2>What I Do With the Time</h2>
-      <ul>
-        <li><strong>10 minutes:</strong> I make tea and sit without a phone. Just sit.</li>
-        <li><strong>10 minutes:</strong> I write — not for anyone, just whatever comes out.</li>
-        <li><strong>10 minutes:</strong> I read something slow: a book, a long article, never news.</li>
-      </ul>
-      <p>That's it. No exercise at 5am. No cold plunge. No productivity stack. Just thirty minutes of warmth, quiet, and intentional input before the reactive portion of the day begins.</p>
-      <h2>What Changed</h2>
-      <blockquote>"I stopped dreading mornings and started looking forward to them. That alone was worth more than any productivity hack."</blockquote>
-      <p>My focus improved. My anxiety decreased. I started showing up to work already feeling like a person, rather than someone who had been thrown into the day without preparation.</p>
-      <hr>
-      <p>The best morning routine is the one you'll actually do. Start with ten minutes. Protect them fiercely.</p>
     `,
     'why-i-started-writing': `
       <p>For a long time, I believed writing was for writers — capital-W Writers who had MFAs and literary agents and something Important to say. I was not that person. I was someone with ordinary thoughts about ordinary things who happened to sometimes arrange sentences in his head.</p>
