@@ -833,3 +833,195 @@ footer {
   .post-nav .next { text-align: left; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
 }
+
+/* ===== Gallery Page ===== */
+.gallery-hero {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-light) 100%);
+  padding: 72px 0 56px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gallery-filter-section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.gallery-filter-section .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gallery-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.gallery-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.gallery-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.gallery-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+.gallery-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--accent-light);
+  overflow: hidden;
+}
+
+.gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-card:hover .gallery-img-wrap img { transform: scale(1.05); }
+
+.gallery-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--accent-light), var(--bg-secondary));
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.gallery-info {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery-info h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.gallery-region {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 3px 8px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox.open { display: flex; }
+
+.lightbox-inner {
+  max-width: 860px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.lightbox-img {
+  max-height: 70vh;
+  max-width: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.lightbox-placeholder {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  height: 300px;
+  background: var(--accent-light);
+  border-radius: 12px;
+}
+
+.lightbox-caption {
+  margin-top: 16px;
+  color: #fff;
+}
+.lightbox-caption h3 { font-size: 1.3rem; margin-bottom: 4px; color: #fff; }
+.lightbox-caption p { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  line-height: 1;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+.lightbox-prev, .lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  line-height: 1;
+}
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
+}
