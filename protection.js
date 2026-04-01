@@ -7,8 +7,6 @@
 (function () {
   'use strict';
 
-  const OWNER = '© Rajeev Kumar Gupta | rajeevfrombarhi.in';
-
   // ---- 1. Block Right-Click ----
   document.addEventListener('contextmenu', function (e) {
     if (isProtectedTarget(e.target)) {
@@ -94,12 +92,6 @@
           return false;
         });
         shield.addEventListener('dragstart', e => e.preventDefault());
-
-        // Watermark label inside shield
-        const wm = document.createElement('span');
-        wm.className = 'img-watermark';
-        wm.textContent = OWNER;
-        shield.appendChild(wm);
 
         parent.appendChild(shield);
       }

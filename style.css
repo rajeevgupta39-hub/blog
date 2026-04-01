@@ -774,32 +774,6 @@ img.protected {
   -webkit-user-select: none;
 }
 
-/* Watermark — visible on screenshots */
-.img-watermark {
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.55);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  letter-spacing: 0.03em;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-}
-
-/* Diagonal watermark on lightbox */
-.lightbox .img-watermark {
-  bottom: auto;
-  right: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.12);
-  pointer-events: none;
-}
 
 /* Block print media — hides images when printing */
 @media print {
