@@ -26,10 +26,20 @@ if (themeToggle) {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-// Create transparent overlay
+// Create light overlay
 const navOverlay = document.createElement('div');
 navOverlay.className = 'nav-overlay';
 document.body.appendChild(navOverlay);
+
+// Add X close button inside nav drawer
+if (navLinks) {
+  const navCloseBtn = document.createElement('button');
+  navCloseBtn.className = 'nav-close-btn';
+  navCloseBtn.innerHTML = '&times;';
+  navCloseBtn.setAttribute('aria-label', 'Close menu');
+  navCloseBtn.addEventListener('click', closeNav);
+  navLinks.insertBefore(navCloseBtn, navLinks.firstChild);
+}
 
 function openNav() {
   navLinks.classList.add('open');
