@@ -853,19 +853,16 @@ footer {
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
+  height: 420px;
 }
 .hero-photo-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 
 .hero-photo-item img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
-}
-
-.hero-photo-family img {
-  aspect-ratio: 4 / 5;
 }
 
 .home-photo-label {
@@ -886,7 +883,7 @@ footer {
   .hero-layout { grid-template-columns: 1fr; }
   .hero-center { order: -1; }
   .hero-photo-family { order: 1; }
-  .hero-photo-item img { aspect-ratio: 4 / 3; }
+  .hero-photo-item { height: 280px; }
 }
 
 /* ===== Gallery Page ===== */
