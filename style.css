@@ -900,8 +900,9 @@ footer {
 .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
 .interests-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
   margin-top: 32px;
 }
@@ -913,6 +914,8 @@ footer {
   padding: 20px;
   text-align: center;
   transition: all var(--transition);
+  width: 200px;
+  flex-shrink: 0;
 }
 .interest-item:hover { border-color: var(--accent); transform: translateY(-2px); }
 .interest-icon { font-size: 2rem; margin-bottom: 8px; }
