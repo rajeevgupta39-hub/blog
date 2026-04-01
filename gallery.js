@@ -273,9 +273,11 @@ function renderAlbums(filter = 'all') {
             ? `<img src="${cover}" alt="${place.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />`
             : ''}
           <div class="album-placeholder" ${cover ? 'style="display:none"' : ''}>${place.emoji}</div>
-          ${count > 0 ? `<span class="album-count">${count} photo${count !== 1 ? 's' : ''}</span>` : '<span class="album-count no-photos">No photos yet</span>'}
         </div>
         <div class="album-info">
+          ${count > 0
+            ? `<span class="no-photos-label" style="color:var(--accent); font-style:normal; font-weight:600;">${count} photo${count !== 1 ? 's' : ''}</span>`
+            : `<span class="no-photos-label">No photos yet</span>`}
           <h3>${place.name}</h3>
           <span class="gallery-region">${place.state}</span>
         </div>

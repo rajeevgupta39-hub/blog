@@ -986,13 +986,10 @@ img.protected {
   border-radius: 50px;
   backdrop-filter: blur(4px);
 }
-.album-count.no-photos {
-  background: rgba(0,0,0,0.4);
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  transform: translate(-50%, -50%);
+.no-photos-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: italic;
 }
 
 .album-info { padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; align-items: center; text-align: center; }
