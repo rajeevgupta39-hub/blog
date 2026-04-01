@@ -85,9 +85,8 @@
 /* ===== Dark mode — black text on bright accent backgrounds ===== */
 [data-theme="dark"] .cat-btn.active,
 [data-theme="dark"] .view-btn.active,
-[data-theme="dark"] .btn,
-[data-theme="dark"] .btn:hover,
-[data-theme="dark"] .btn-outline:hover,
+[data-theme="dark"] .btn:not(.btn-outline),
+[data-theme="dark"] .btn:not(.btn-outline):hover,
 [data-theme="dark"] .slide-btn:hover,
 [data-theme="dark"] .modal-close:hover,
 [data-theme="dark"] .cat-btn:hover,
@@ -95,6 +94,8 @@
   color: #1a1a2e !important;
 }
 [data-theme="dark"] .swatch.active::after { color: #1a1a2e; }
+[data-theme="dark"] .btn-outline { color: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .btn-outline:hover { background: var(--accent); color: #1a1a2e !important; }
 
 /* ===== Color Themes (Light) ===== */
 [data-color="blue"]   { --accent:#3b82f6; --accent-hover:#2563eb; --accent-light:#eff6ff; --shadow-hover:0 8px 24px rgba(59,130,246,.18); --tag-bg:#eff6ff; --tag-text:#3b82f6; --bg-secondary:#f0f7ff; }
@@ -1000,7 +1001,7 @@ img.protected {
   width: 44px;
   height: 44px;
   background: var(--accent);
-  color: #fff;
+  color: #1a1a2e;
   border: none;
   border-radius: 50%;
   cursor: pointer;
