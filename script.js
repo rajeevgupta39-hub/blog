@@ -22,6 +22,78 @@ if (themeToggle) {
   });
 }
 
+// ===== Color Theme Picker =====
+const colorThemes = [
+  { id: 'purple',  label: 'Purple',  color: '#6c63ff' },
+  { id: 'blue',    label: 'Blue',    color: '#3b82f6' },
+  { id: 'green',   label: 'Green',   color: '#10b981' },
+  { id: 'orange',  label: 'Orange',  color: '#f97316' },
+  { id: 'rose',    label: 'Rose',    color: '#f43f5e' },
+  { id: 'teal',    label: 'Teal',    color: '#14b8a6' },
+  { id: 'crimson', label: 'Crimson', color: '#dc2626' },
+  { id: 'golden',  label: 'Golden',  color: '#d97706' },
+  { id: 'indigo',  label: 'Indigo',  color: '#4f46e5' },
+  { id: 'emerald', label: 'Emerald', color: '#059669' },
+];
+
+function applyColorTheme(id) {
+  if (id === 'purple') {
+    document.documentElement.removeAttribute('data-color');
+  } else {
+    document.documentElement.setAttribute('data-color', id);
+  }
+  localStorage.setItem('colorTheme', id);
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.classList.toggle('active', s.dataset.theme === id);
+  });
+}
+
+// Inject theme picker into nav-actions
+function buildThemePicker() {
+  const navActions = document.querySelector('.nav-actions');
+  if (!navActions) return;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'theme-picker-wrap';
+  wrap.innerHTML = `
+    <button class="theme-picker-btn" id="themePickerBtn" aria-label="Change theme colour">🎨</button>
+    <div class="theme-palette" id="themePalette">
+      <h4>Choose Theme</h4>
+      <div class="theme-swatches">
+        ${colorThemes.map(t => `
+          <div class="swatch" data-theme="${t.id}" title="${t.label}"
+            style="background:${t.color}"></div>`).join('')}
+      </div>
+    </div>`;
+
+  // Insert before theme toggle
+  const themeToggleBtn = navActions.querySelector('.theme-toggle');
+  navActions.insertBefore(wrap, themeToggleBtn);
+
+  document.getElementById('themePickerBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    document.getElementById('themePalette').classList.toggle('open');
+  });
+
+  document.addEventListener('click', () => {
+    const p = document.getElementById('themePalette');
+    if (p) p.classList.remove('open');
+  });
+
+  wrap.querySelectorAll('.swatch').forEach(swatch => {
+    swatch.addEventListener('click', e => {
+      e.stopPropagation();
+      applyColorTheme(swatch.dataset.theme);
+      document.getElementById('themePalette').classList.remove('open');
+    });
+  });
+}
+
+// Restore saved colour theme
+const savedColor = localStorage.getItem('colorTheme') || 'purple';
+applyColorTheme(savedColor);
+buildThemePicker();
+
 // ===== Hamburger Menu (desktop only — mobile shows links directly) =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
