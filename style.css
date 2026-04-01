@@ -62,6 +62,20 @@
   border-radius: 50px;
 }
 
+/* ===== Dark mode — black text on bright accent backgrounds ===== */
+[data-theme="dark"] .cat-btn.active,
+[data-theme="dark"] .view-btn.active,
+[data-theme="dark"] .btn,
+[data-theme="dark"] .btn:hover,
+[data-theme="dark"] .btn-outline:hover,
+[data-theme="dark"] .slide-btn:hover,
+[data-theme="dark"] .modal-close:hover,
+[data-theme="dark"] .cat-btn:hover,
+[data-theme="dark"] .view-btn:hover {
+  color: #1a1a2e !important;
+}
+[data-theme="dark"] .swatch.active::after { color: #1a1a2e; }
+
 /* ===== Color Themes (Light) ===== */
 [data-color="blue"]   { --accent:#3b82f6; --accent-hover:#2563eb; --accent-light:#eff6ff; --shadow-hover:0 8px 24px rgba(59,130,246,.18); --tag-bg:#eff6ff; --tag-text:#3b82f6; --bg-secondary:#f0f7ff; }
 [data-color="green"]  { --accent:#10b981; --accent-hover:#059669; --accent-light:#ecfdf5; --shadow-hover:0 8px 24px rgba(16,185,129,.18); --tag-bg:#ecfdf5; --tag-text:#10b981; --bg-secondary:#f0fdf8; }
