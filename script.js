@@ -22,52 +22,9 @@ if (themeToggle) {
   });
 }
 
-// ===== Hamburger Menu =====
+// ===== Hamburger Menu (desktop only — mobile shows links directly) =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
-
-// Create light overlay
-const navOverlay = document.createElement('div');
-navOverlay.className = 'nav-overlay';
-document.body.appendChild(navOverlay);
-
-// Add X close button inside nav drawer
-if (navLinks) {
-  const navCloseBtn = document.createElement('button');
-  navCloseBtn.className = 'nav-close-btn';
-  navCloseBtn.innerHTML = '&times;';
-  navCloseBtn.setAttribute('aria-label', 'Close menu');
-  navCloseBtn.addEventListener('click', closeNav);
-  navLinks.insertBefore(navCloseBtn, navLinks.firstChild);
-}
-
-function openNav() {
-  navLinks.classList.add('open');
-  navOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  const spans = hamburger.querySelectorAll('span');
-  spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-  spans[1].style.opacity = '0';
-  spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-}
-
-function closeNav() {
-  navLinks.classList.remove('open');
-  navOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-  const spans = hamburger.querySelectorAll('span');
-  spans[0].style.transform = '';
-  spans[1].style.opacity = '';
-  spans[2].style.transform = '';
-}
-
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.contains('open') ? closeNav() : openNav();
-  });
-}
-
-navOverlay.addEventListener('click', closeNav);
 
 // ===== Posts Data =====
 const posts = [

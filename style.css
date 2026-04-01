@@ -871,74 +871,37 @@ img.protected {
   .about-widget .img-protect-wrap { margin: 0 auto 14px; }
 }
 
-/* ===== Mobile Nav Overlay ===== */
-.nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  z-index: 98;
-}
-.nav-overlay.open { display: block; }
-
-/* X close button inside nav drawer */
-.nav-close-btn {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid #1a1a2e;
-  background: transparent;
-  color: #1a1a2e;
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-family: inherit;
-  transition: background var(--transition), color var(--transition);
-}
-.nav-close-btn:hover { background: #1a1a2e; color: #fff; }
-
 @media (max-width: 640px) {
-  .nav-close-btn { display: flex; }
-}
-
-@media (max-width: 640px) {
-  /* Slide-in drawer from right */
+  /* Always-visible nav links in a second row below brand */
+  nav { flex-wrap: wrap; height: auto; padding: 10px 0; gap: 0; }
+  .hamburger { display: none; }
   .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: fit-content;
-    min-width: max-content;
-    height: 100vh;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 0 24px;
-    gap: 28px;
-    z-index: 99;
-    transform: translateX(110%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 4px;
+    width: 100%;
+    padding: 10px 12px 4px;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+    position: static;
+    height: auto;
+    background: transparent;
+    transform: none;
   }
-  .nav-links.open { transform: translateX(0); }
   .nav-links a {
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: var(--accent);
-    text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background var(--transition), color var(--transition);
   }
-  .hamburger { display: flex; }
+  .nav-links a:hover, .nav-links a.active {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
   .hero { padding: 56px 0 48px; }
   .newsletter-form { flex-direction: column; }
   .search-row { flex-direction: column; align-items: stretch; }
