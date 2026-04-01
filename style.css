@@ -142,7 +142,7 @@ nav {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--text);
+  background: #1a1a2e;
   border-radius: 2px;
   transition: all var(--transition);
 }
@@ -451,7 +451,8 @@ nav {
 }
 
 /* About Widget */
-.about-widget { text-align: center; }
+.about-widget { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.about-widget .img-protect-wrap { margin: 0 auto 14px; display: block; }
 .about-avatar {
   width: 80px;
   height: 80px;
@@ -875,7 +876,7 @@ img.protected {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.18);
   z-index: 98;
 }
 .nav-overlay.open { display: block; }
@@ -886,29 +887,28 @@ img.protected {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100vw;
+    width: fit-content;
+    min-width: max-content;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 24px;
     gap: 28px;
     z-index: 99;
-    transform: translateX(100%);
+    transform: translateX(110%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  [data-theme="dark"] .nav-links {
-    background: rgba(15, 15, 26, 0.82);
   }
   .nav-links.open { transform: translateX(0); }
   .nav-links a {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     text-align: center;
     letter-spacing: 0.02em;
+    color: var(--accent);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.25);
   }
   .hamburger { display: flex; }
   .hero { padding: 56px 0 48px; }
@@ -919,6 +919,10 @@ img.protected {
   .post-nav { flex-direction: column; }
   .post-nav .next { text-align: left; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+  .about-widget { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .about-widget .img-protect-wrap { margin: 0 auto 14px; display: block; text-align: center; }
+  .about-widget .about-avatar { margin: 0 auto; display: block; }
+  .sidebar-card { text-align: center; }
 }
 
 /* ===== Hero with Photos ===== */
