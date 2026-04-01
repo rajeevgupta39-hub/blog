@@ -230,8 +230,18 @@ catButtons.forEach(btn => {
     catButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderPosts();
+    scrollToPosts();
   });
 });
+
+// Scroll to posts grid with header offset
+function scrollToPosts() {
+  const grid = document.getElementById('postsGrid');
+  if (!grid) return;
+  const headerHeight = document.querySelector('header')?.offsetHeight || 70;
+  const top = grid.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
 
 // Sidebar category clicks
 const catListItems = document.querySelectorAll('.category-list li');
@@ -243,7 +253,7 @@ catListItems.forEach(li => {
       b.classList.toggle('active', b.dataset.cat === cat);
     });
     renderPosts();
-    document.getElementById('postsGrid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToPosts();
   });
 });
 
