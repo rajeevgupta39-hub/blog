@@ -872,10 +872,14 @@ img.protected {
 }
 
 @media (max-width: 640px) {
-  /* Always-visible nav links in a second row below brand */
+  /* Row 1: Brand (left) + Theme toggle (right) */
+  /* Row 2: Home, About, Gallery, Newsletter */
   nav { flex-wrap: wrap; height: auto; padding: 10px 0; gap: 0; }
   .hamburger { display: none; }
+  .nav-brand { order: 1; flex: 1; }
+  .nav-actions { order: 2; }
   .nav-links {
+    order: 3;
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
