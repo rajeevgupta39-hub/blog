@@ -40,7 +40,7 @@
       <p class="hero-eyebrow">Through My Lens</p>
       <h1 style="font-size:clamp(2rem,5vw,3.2rem); margin-bottom:12px;">Places I've <em style="color:var(--accent);font-style:italic;">Visited</em></h1>
       <p style="color:var(--text-muted); font-size:1.05rem; max-width:480px; margin:0 auto;">
-        Moments captured across the incredible landscapes, temples, forests and streets of India.
+        Click any place to explore all photos from that visit.
       </p>
     </div>
   </section>
@@ -60,237 +60,55 @@
     </div>
   </section>
 
-  <!-- Gallery Grid -->
+  <!-- Albums Grid -->
   <main class="container" style="padding: 40px 24px 80px;">
-    <div class="gallery-grid" id="galleryGrid">
-
-      <!-- ===== MADHYA PRADESH ===== -->
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Chanderi" data-caption="Ancient weavers' town with Mughal monuments" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/chanderi.jpg" alt="Chanderi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🏯</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Chanderi</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Orchha" data-caption="Riverside town of cenotaphs and Bundela kings" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/orchha.jpg" alt="Orchha" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🛕</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Orchha</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Datia" data-caption="Seat of the goddess Pitambara Peeth" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/datia.jpg" alt="Datia" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">⛩️</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Datia</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Bandhavgarh" data-caption="Home of the Royal Bengal Tiger" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/bandhavgarh.jpg" alt="Bandhavgarh" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🐯</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Bandhavgarh</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Bhopal" data-caption="City of Lakes and the Bharat Bhavan" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/bhopal.jpg" alt="Bhopal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🌊</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Bhopal</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Ujjain" data-caption="Sacred city on the banks of Kshipra" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/ujjain.jpg" alt="Ujjain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🙏</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Ujjain</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Mandu" data-caption="Ruined city of romance, forts and baolis" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/mandu.jpg" alt="Mandu" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🏰</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Mandu (Mandav)</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Maheshwar" data-caption="Holkar queen Ahilya Bai's riverside fortress" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/maheshwar.jpg" alt="Maheshwar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">⛵</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Maheshwar</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Hanuwantiya" data-caption="Island retreat on Indira Sagar reservoir" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/hanuwantiya.jpg" alt="Hanuwantiya" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🏝️</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Hanuwantiya</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Bhojpur" data-caption="Unfinished Shiva temple, an architectural marvel" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/bhojpur.jpg" alt="Bhojpur" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🗿</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Bhojpur</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Salkanpur" data-caption="Hilltop temple of Goddess Bijasan Mata" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/salkanpur.jpg" alt="Salkanpur" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">⛰️</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Salkanpur</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Bhimbetka" data-caption="UNESCO rock shelters with prehistoric paintings" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/bhimbetka.jpg" alt="Bhimbetka" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🪨</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Bhimbetka</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="madhya-pradesh" data-place="Indore" data-caption="Foodie capital of India" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/indore.jpg" alt="Indore" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🍽️</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Indore</h3>
-          <span class="gallery-region">Madhya Pradesh</span>
-        </div>
-      </div>
-
-      <!-- ===== GUJARAT ===== -->
-      <div class="gallery-card" data-region="gujarat" data-place="Ahmedabad" data-caption="India's first UNESCO World Heritage City" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/ahmedabad.jpg" alt="Ahmedabad" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🕌</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Ahmedabad</h3>
-          <span class="gallery-region">Gujarat</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="gujarat" data-place="Somnath" data-caption="One of the twelve sacred Jyotirlingas" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/somnath.jpg" alt="Somnath" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🌊</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Somnath</h3>
-          <span class="gallery-region">Gujarat</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="gujarat" data-place="Dwarka" data-caption="Sacred city of Lord Krishna by the sea" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/dwarka.jpg" alt="Dwarka" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🐚</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Dwarka</h3>
-          <span class="gallery-region">Gujarat</span>
-        </div>
-      </div>
-
-      <div class="gallery-card" data-region="gujarat" data-place="Junagadh" data-caption="City at the foothills of sacred Girnar" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/junagadh.jpg" alt="Junagadh" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🦁</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Junagadh</h3>
-          <span class="gallery-region">Gujarat</span>
-        </div>
-      </div>
-
-      <!-- ===== MAHARASHTRA ===== -->
-      <div class="gallery-card" data-region="maharashtra" data-place="Mumbai" data-caption="The city that never sleeps" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/mumbai.jpg" alt="Mumbai" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🌆</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Mumbai</h3>
-          <span class="gallery-region">Maharashtra</span>
-        </div>
-      </div>
-
-      <!-- ===== KARNATAKA ===== -->
-      <div class="gallery-card" data-region="karnataka" data-place="Coorg" data-caption="Scotland of India — coffee and misty hills" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/coorg.jpg" alt="Coorg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">☕</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Coorg</h3>
-          <span class="gallery-region">Karnataka</span>
-        </div>
-      </div>
-
-      <!-- ===== KERALA ===== -->
-      <div class="gallery-card" data-region="kerala" data-place="Wayanad" data-caption="Wild jungles and spice gardens of Kerala" onclick="openLightbox(this)">
-        <div class="gallery-img-wrap">
-          <img src="images/wayanad.jpg" alt="Wayanad" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="gallery-placeholder">🌿</div>
-        </div>
-        <div class="gallery-info">
-          <h3>Wayanad</h3>
-          <span class="gallery-region">Kerala</span>
-        </div>
-      </div>
-
-    </div><!-- end gallery-grid -->
+    <div class="album-grid" id="albumGrid">
+      <!-- Rendered by gallery.js -->
+    </div>
   </main>
+
+  <!-- ===== Album Modal ===== -->
+  <div class="album-modal" id="albumModal">
+    <div class="album-modal-inner">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle">Place Name</h2>
+          <p id="modalState" style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;"></p>
+        </div>
+        <div class="modal-header-right">
+          <span class="modal-count" id="modalPhotoCount"></span>
+
+          <!-- View Toggle -->
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" onclick="setView('grid')" title="Grid View">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              Grid
+            </button>
+            <button class="view-btn" data-view="masonry" onclick="setView('masonry')" title="Masonry View">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="10" rx="1"/><rect x="14" y="3" width="7" height="6" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/></svg>
+              Masonry
+            </button>
+            <button class="view-btn" data-view="slideshow" onclick="setView('slideshow')" title="Slideshow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg>
+              Slideshow
+            </button>
+          </div>
+
+          <button class="modal-close" onclick="closeAlbum()">&times;</button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="modal-content" id="modalContent">
+          <!-- Rendered by gallery.js -->
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- ===== Lightbox ===== -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
@@ -299,10 +117,10 @@
     <button class="lightbox-next" id="lbNext" onclick="lbNavigate(1, event)">&#8250;</button>
     <div class="lightbox-inner">
       <img class="lightbox-img" id="lightboxImg" src="" alt="" />
-      <div class="lightbox-placeholder" id="lightboxPlaceholder"></div>
       <div class="lightbox-caption">
         <h3 id="lightboxPlace"></h3>
         <p id="lightboxCaption"></p>
+        <span id="lbCounter" style="font-size:0.8rem; opacity:0.6;"></span>
       </div>
     </div>
   </div>
@@ -324,91 +142,8 @@
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
+  <script src="protection.js"></script>
   <script src="script.js"></script>
-  <script>
-    // ===== Gallery Filter =====
-    const filterBtns = document.querySelectorAll('#galleryFilters .cat-btn');
-    const cards = document.querySelectorAll('.gallery-card');
-    const countEl = document.getElementById('galleryCount');
-
-    function updateCount() {
-      const visible = [...cards].filter(c => c.style.display !== 'none').length;
-      countEl.textContent = visible + ' place' + (visible !== 1 ? 's' : '');
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const region = btn.dataset.region;
-        cards.forEach(card => {
-          card.style.display = (region === 'all' || card.dataset.region === region) ? 'block' : 'none';
-        });
-        updateCount();
-      });
-    });
-
-    // ===== Lightbox =====
-    let currentIndex = 0;
-    let visibleCards = [];
-
-    function openLightbox(card) {
-      visibleCards = [...cards].filter(c => c.style.display !== 'none');
-      currentIndex = visibleCards.indexOf(card);
-      showLightboxCard(currentIndex);
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function showLightboxCard(idx) {
-      const card = visibleCards[idx];
-      const img = card.querySelector('img');
-      const placeholder = card.querySelector('.gallery-placeholder');
-      const lbImg = document.getElementById('lightboxImg');
-      const lbPh = document.getElementById('lightboxPlaceholder');
-
-      if (img && img.style.display !== 'none' && img.src && !img.src.endsWith('/')) {
-        lbImg.src = img.src;
-        lbImg.alt = img.alt;
-        lbImg.style.display = 'block';
-        lbPh.style.display = 'none';
-      } else {
-        lbImg.style.display = 'none';
-        lbPh.textContent = placeholder ? placeholder.textContent : '📷';
-        lbPh.style.display = 'flex';
-      }
-
-      document.getElementById('lightboxPlace').textContent = card.dataset.place;
-      document.getElementById('lightboxCaption').textContent = card.dataset.caption;
-      document.getElementById('lbPrev').style.opacity = idx > 0 ? '1' : '0.3';
-      document.getElementById('lbNext').style.opacity = idx < visibleCards.length - 1 ? '1' : '0.3';
-    }
-
-    function lbNavigate(dir, e) {
-      if (e) e.stopPropagation();
-      const next = currentIndex + dir;
-      if (next >= 0 && next < visibleCards.length) {
-        currentIndex = next;
-        showLightboxCard(currentIndex);
-      }
-    }
-
-    function closeLightbox(e) {
-      if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
-        document.getElementById('lightbox').classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    }
-
-    document.addEventListener('keydown', e => {
-      const lb = document.getElementById('lightbox');
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'ArrowLeft') lbNavigate(-1);
-      if (e.key === 'ArrowRight') lbNavigate(1);
-      if (e.key === 'Escape') closeLightbox({ target: lb });
-    });
-
-    updateCount();
-  </script>
+  <script src="gallery.js"></script>
 </body>
 </html>
