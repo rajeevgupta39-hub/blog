@@ -1065,7 +1065,25 @@ img.protected {
 
 @media (max-width: 640px) {
   .hero-layout { grid-template-columns: 1fr; }
-  .hero-center { order: -1; }
+  .hero-center {
+    order: -1;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .hero-center .hero-eyebrow {
+    font-size: 0.85rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+  .hero-center h1 { font-size: 1.6rem; }
+  .hero-with-photos { background: var(--bg-secondary); }
   .hero-photo-family { order: 1; }
   .hero-photo-item { height: 280px; }
 }
