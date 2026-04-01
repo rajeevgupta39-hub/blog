@@ -762,6 +762,31 @@ img.protected {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   pointer-events: none;
+  display: block;
+}
+
+/* Wraps tightly around each image so shield covers only the image */
+.img-protect-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+}
+
+/* For full-width images (inside fixed-height containers) */
+.hero-photo-item .img-protect-wrap,
+.album-cover .img-protect-wrap,
+.grid-item .img-protect-wrap,
+.slide-display .img-protect-wrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Masonry: let natural image height flow */
+.masonry-item .img-protect-wrap {
+  display: block;
+  width: 100%;
 }
 
 .img-shield {
@@ -843,19 +868,44 @@ img.protected {
   .about-grid { grid-template-columns: 1fr; }
 }
 
+/* ===== Mobile Nav Overlay ===== */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 98;
+  transition: opacity 0.3s ease;
+}
+.nav-overlay.open { display: block; }
+
 @media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-links.open {
+  /* Slide-in drawer from right */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--header-bg);
+    border-left: 1px solid var(--border);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: var(--header-bg);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 24px;
-    gap: 16px;
+    align-items: center;
+    padding: 88px 28px 32px;
+    gap: 24px;
+    z-index: 99;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
   }
   .hamburger { display: flex; }
   .hero { padding: 56px 0 48px; }

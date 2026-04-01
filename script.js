@@ -26,15 +26,38 @@ if (themeToggle) {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
+// Create transparent overlay
+const navOverlay = document.createElement('div');
+navOverlay.className = 'nav-overlay';
+document.body.appendChild(navOverlay);
+
+function openNav() {
+  navLinks.classList.add('open');
+  navOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+  spans[1].style.opacity = '0';
+  spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+}
+
+function closeNav() {
+  navLinks.classList.remove('open');
+  navOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = '';
+  spans[1].style.opacity = '';
+  spans[2].style.transform = '';
+}
+
 if (hamburger) {
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    const spans = hamburger.querySelectorAll('span');
-    spans[0].style.transform = navLinks.classList.contains('open') ? 'rotate(45deg) translate(5px, 5px)' : '';
-    spans[1].style.opacity = navLinks.classList.contains('open') ? '0' : '';
-    spans[2].style.transform = navLinks.classList.contains('open') ? 'rotate(-45deg) translate(5px, -5px)' : '';
+    navLinks.classList.contains('open') ? closeNav() : openNav();
   });
 }
+
+navOverlay.addEventListener('click', closeNav);
 
 // ===== Posts Data =====
 const posts = [

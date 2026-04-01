@@ -65,36 +65,35 @@
   });
   window.onbeforeprint = function () { return false; };
 
-  // ---- 5. Add Transparent Overlay + Watermark on All Images ----
+  // ---- 5. Wrap Each Image in Its Own Shield ----
   function protectImages() {
     document.querySelectorAll('img:not(.protected)').forEach(img => {
       img.classList.add('protected');
       img.setAttribute('draggable', 'false');
       img.style.userSelect = 'none';
       img.style.webkitTouchCallout = 'none';
-      img.style.pointerEvents = 'none'; // overlay handles all interaction
+      img.style.pointerEvents = 'none';
 
       const parent = img.parentElement;
-      if (!parent) return;
+      if (!parent || parent.classList.contains('img-protect-wrap')) return;
 
-      // Ensure parent is positioned
-      const pos = window.getComputedStyle(parent).position;
-      if (pos === 'static') parent.style.position = 'relative';
+      // Wrap the image in its own container so shield covers only the image
+      const wrap = document.createElement('div');
+      wrap.className = 'img-protect-wrap';
+      parent.insertBefore(wrap, img);
+      wrap.appendChild(img);
 
-      // Create transparent overlay
-      if (!parent.querySelector('.img-shield')) {
-        const shield = document.createElement('div');
-        shield.className = 'img-shield';
-        shield.setAttribute('draggable', 'false');
-        shield.addEventListener('contextmenu', e => {
-          e.preventDefault();
-          showToast('🔒 Images are protected.');
-          return false;
-        });
-        shield.addEventListener('dragstart', e => e.preventDefault());
-
-        parent.appendChild(shield);
-      }
+      // Shield covers only the wrap (= only the image area)
+      const shield = document.createElement('div');
+      shield.className = 'img-shield';
+      shield.setAttribute('draggable', 'false');
+      shield.addEventListener('contextmenu', e => {
+        e.preventDefault();
+        showToast('🔒 Images are protected.');
+        return false;
+      });
+      shield.addEventListener('dragstart', e => e.preventDefault());
+      wrap.appendChild(shield);
     });
   }
 
