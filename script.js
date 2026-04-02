@@ -180,12 +180,21 @@ function buildThemePicker() {
 }
 
 // Restore saved themes
+// Apply data attributes early (before paint) to avoid flash
 const savedColor = localStorage.getItem('colorTheme') || 'purple';
-applyColorTheme(savedColor);
+if (savedColor !== 'purple') document.documentElement.setAttribute('data-color', savedColor);
 buildPageBg();
 const savedScene = localStorage.getItem('sceneTheme') || 'none';
-applyScene(savedScene);
+if (savedScene !== 'none') {
+  document.documentElement.setAttribute('data-scene', savedScene);
+  const pg = document.getElementById('pageBg');
+  if (pg) pg.classList.add('active');
+}
+
+// Build picker first — then mark saved selections as active
 buildThemePicker();
+applyColorTheme(savedColor);
+applyScene(savedScene);
 
 // ===== Posts Data =====
 const posts = [
