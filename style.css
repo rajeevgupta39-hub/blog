@@ -145,13 +145,15 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px;
+  padding: 16px;
   box-shadow: var(--shadow-hover);
   z-index: 500;
-  width: 220px;
+  width: 260px;
 }
 .theme-palette.open { display: block; }
-.theme-palette h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px; }
+.theme-palette h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px; }
+.scene-swatches { gap: 6px; }
+.scene-swatches .swatch { border-radius: 8px; }
 
 .theme-swatches { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -1579,4 +1581,202 @@ img.protected {
   .view-masonry { columns: 1; }
   .lightbox-prev { left: 4px; }
   .lightbox-next { right: 4px; }
+}
+
+/* ===================================================
+   SCENIC BACKGROUND THEMES
+   Applied to hero sections on all pages
+=================================================== */
+
+/* Shared hero-scene helpers */
+.hero-scene-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.28);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-with-photos,
+.gallery-hero,
+.about-hero,
+.post-hero {
+  position: relative;
+}
+[data-scene] .hero-with-photos *,
+[data-scene] .gallery-hero *,
+[data-scene] .about-hero *,
+[data-scene] .post-hero * {
+  position: relative;
+  z-index: 1;
+}
+[data-scene] .hero-with-photos .hero-photo-item,
+[data-scene] .hero-with-photos .hero-photo-family {
+  z-index: 1;
+}
+
+/* ---- 1. Mountains ---- */
+[data-scene="mountains"] .hero-with-photos,
+[data-scene="mountains"] .gallery-hero,
+[data-scene="mountains"] .about-hero,
+[data-scene="mountains"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220'%3E%3Cpath fill='%232d4a2e' d='M0,220 L0,160 L80,100 L160,140 L240,80 L320,130 L400,60 L480,110 L560,50 L640,100 L720,40 L800,100 L880,55 L960,110 L1040,60 L1120,120 L1200,70 L1280,130 L1360,80 L1440,140 L1440,220Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220'%3E%3Cpath fill='%234a7c59' opacity='0.85' d='M0,220 L0,170 L120,90 L200,140 L300,70 L420,130 L500,55 L620,120 L700,45 L820,115 L920,60 L1040,130 L1140,75 L1260,140 L1360,90 L1440,150 L1440,220Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220'%3E%3Cpath fill='%23607d8b' opacity='0.7' d='M0,220 L0,180 L180,100 L280,155 L380,80 L500,150 L600,65 L720,140 L820,70 L940,145 L1060,80 L1180,155 L1280,90 L1440,160 L1440,220Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    linear-gradient(to bottom, #87ceeb 0%, #a8d8ea 45%, #c5e8f3 75%, #dff0f8 100%);
+}
+[data-scene="mountains"] .hero-with-photos,
+[data-scene="mountains"] .gallery-hero,
+[data-scene="mountains"] .about-hero,
+[data-scene="mountains"] .post-hero { color: #1a1a2e; }
+[data-scene="mountains"] .hero-eyebrow,
+[data-scene="mountains"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.7); color: #1a1a2e; }
+
+/* ---- 2. Spiritual ---- */
+[data-scene="spiritual"] .hero-with-photos,
+[data-scene="spiritual"] .gallery-hero,
+[data-scene="spiritual"] .about-hero,
+[data-scene="spiritual"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Ccircle cx='720' cy='300' r='280' fill='%23fff3' /%3E%3Ccircle cx='720' cy='300' r='200' fill='%23fff2' /%3E%3C/svg%3E") center/cover,
+    radial-gradient(ellipse at 50% 120%, #fff8e1 0%, #ffe082 30%, #ffb300 60%, #e65100 85%, #bf360c 100%);
+}
+[data-scene="spiritual"] .hero-eyebrow,
+[data-scene="spiritual"] .gallery-hero .hero-eyebrow { background: rgba(191,54,12,0.15); color: #bf360c; }
+
+/* ---- 3. Ocean ---- */
+[data-scene="ocean"] .hero-with-photos,
+[data-scene="ocean"] .gallery-hero,
+[data-scene="ocean"] .about-hero,
+[data-scene="ocean"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%2300838f' opacity='0.6' d='M0,40 C180,10 360,70 540,40 C720,10 900,70 1080,40 C1260,10 1380,60 1440,40 L1440,80 L0,80Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23006064' opacity='0.8' d='M0,50 C200,20 400,70 600,45 C800,20 1000,70 1200,45 C1320,30 1390,60 1440,50 L1440,80 L0,80Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    linear-gradient(to bottom, #006064 0%, #00838f 30%, #00acc1 60%, #00bcd4 80%, #80deea 100%);
+}
+[data-scene="ocean"] .hero-eyebrow,
+[data-scene="ocean"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.2); color: #fff; }
+[data-scene="ocean"] h1, [data-scene="ocean"] h2 { color: #fff; }
+[data-scene="ocean"] .hero-sub, [data-scene="ocean"] .gallery-hero p { color: rgba(255,255,255,0.85); }
+
+/* ---- 4. Forest ---- */
+[data-scene="forest"] .hero-with-photos,
+[data-scene="forest"] .gallery-hero,
+[data-scene="forest"] .about-hero,
+[data-scene="forest"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%231b5e20' d='M0,180 L0,120 L40,90 L80,130 L120,70 L160,110 L200,60 L240,100 L280,50 L320,90 L360,50 L400,80 L440,40 L480,90 L520,40 L560,80 L600,40 L640,80 L680,40 L720,70 L760,40 L800,80 L840,40 L880,80 L920,40 L960,80 L1000,40 L1040,80 L1080,50 L1120,90 L1160,50 L1200,90 L1240,50 L1280,90 L1320,60 L1360,100 L1400,60 L1440,110 L1440,180Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    radial-gradient(ellipse at 30% 0%, #a5d6a7 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 0%, #c8e6c9 0%, transparent 50%),
+    linear-gradient(to bottom, #1b5e20 0%, #2e7d32 40%, #388e3c 70%, #4caf50 100%);
+}
+[data-scene="forest"] h1, [data-scene="forest"] h2 { color: #fff; }
+[data-scene="forest"] .hero-sub, [data-scene="forest"] .gallery-hero p { color: rgba(255,255,255,0.85); }
+[data-scene="forest"] .hero-eyebrow,
+[data-scene="forest"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.2); color: #fff; }
+
+/* ---- 5. Sunset ---- */
+[data-scene="sunset"] .hero-with-photos,
+[data-scene="sunset"] .gallery-hero,
+[data-scene="sunset"] .about-hero,
+[data-scene="sunset"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='%23212121' d='M0,200 L0,150 L60,130 L120,150 L200,110 L280,140 L360,100 L440,130 L520,90 L600,120 L680,80 L760,120 L840,90 L920,130 L1000,95 L1080,130 L1160,100 L1240,140 L1320,110 L1440,150 L1440,200Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    radial-gradient(ellipse at 50% 100%, #ffeb3b 0%, #ff9800 25%, #f44336 50%, #9c27b0 75%, #311b92 100%);
+}
+[data-scene="sunset"] h1, [data-scene="sunset"] h2 { color: #fff; }
+[data-scene="sunset"] .hero-sub, [data-scene="sunset"] .gallery-hero p { color: rgba(255,255,255,0.85); }
+[data-scene="sunset"] .hero-eyebrow,
+[data-scene="sunset"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.2); color: #fff; }
+
+/* ---- 6. Night Sky ---- */
+[data-scene="nightsky"] .hero-with-photos,
+[data-scene="nightsky"] .gallery-hero,
+[data-scene="nightsky"] .about-hero,
+[data-scene="nightsky"] .post-hero {
+  background:
+    radial-gradient(1px 1px at 10% 15%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 8%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 20%, #ffffffcc 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 5%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 18%, #ffffffcc 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 10%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 35%, #ffffffcc 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 30%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 25%, #ffffffcc 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 45%, #fff 0%, transparent 100%),
+    radial-gradient(2px 2px at 50% 12%, #ffe 0%, transparent 100%),
+    radial-gradient(2px 2px at 80% 8%, #ffe 0%, transparent 100%),
+    radial-gradient(ellipse at 50% 60%, #1a237e 0%, #0a0a2e 60%, #000010 100%);
+}
+[data-scene="nightsky"] h1, [data-scene="nightsky"] h2 { color: #fff; }
+[data-scene="nightsky"] .hero-sub, [data-scene="nightsky"] .gallery-hero p { color: rgba(255,255,255,0.8); }
+[data-scene="nightsky"] .hero-eyebrow,
+[data-scene="nightsky"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.15); color: #c5cae9; }
+
+/* ---- 7. Cherry Blossom ---- */
+[data-scene="blossom"] .hero-with-photos,
+[data-scene="blossom"] .gallery-hero,
+[data-scene="blossom"] .about-hero,
+[data-scene="blossom"] .post-hero {
+  background:
+    radial-gradient(ellipse at 10% 0%, #f8bbd9 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 10%, #f48fb1 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #fce4ec 0%, transparent 50%),
+    linear-gradient(135deg, #fce4ec 0%, #f8bbd9 30%, #f48fb1 60%, #e91e8c22 100%);
+}
+[data-scene="blossom"] .hero-eyebrow,
+[data-scene="blossom"] .gallery-hero .hero-eyebrow { background: rgba(233,30,99,0.12); color: #c2185b; }
+[data-scene="blossom"] h1, [data-scene="blossom"] h2 { color: #880e4f; }
+
+/* ---- 8. Desert ---- */
+[data-scene="desert"] .hero-with-photos,
+[data-scene="desert"] .gallery-hero,
+[data-scene="desert"] .about-hero,
+[data-scene="desert"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23e65100' opacity='0.6' d='M0,120 L0,80 C200,40 400,100 600,60 C800,20 1000,90 1200,55 C1300,37 1380,65 1440,55 L1440,120Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    linear-gradient(to bottom, #1565c0 0%, #42a5f5 20%, #ffcc80 50%, #ffa726 70%, #e65100 100%);
+}
+[data-scene="desert"] h1, [data-scene="desert"] h2 { color: #fff; }
+[data-scene="desert"] .hero-sub, [data-scene="desert"] .gallery-hero p { color: rgba(255,255,255,0.9); }
+[data-scene="desert"] .hero-eyebrow,
+[data-scene="desert"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.2); color: #fff; }
+
+/* ---- 9. Himalayan Snow ---- */
+[data-scene="snow"] .hero-with-photos,
+[data-scene="snow"] .gallery-hero,
+[data-scene="snow"] .about-hero,
+[data-scene="snow"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='%23fff' opacity='0.9' d='M0,200 L0,140 L100,80 L160,120 L250,55 L340,105 L430,40 L520,95 L610,30 L700,90 L790,35 L880,95 L970,45 L1060,100 L1150,55 L1240,115 L1330,70 L1440,130 L1440,200Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='%23b0bec5' opacity='0.6' d='M0,200 L0,155 L120,95 L200,140 L310,70 L410,125 L510,55 L620,115 L720,50 L820,115 L930,60 L1030,120 L1140,65 L1240,130 L1340,85 L1440,145 L1440,200Z'/%3E%3C/svg%3E") bottom/100% auto no-repeat,
+    linear-gradient(to bottom, #1565c0 0%, #42a5f5 30%, #90caf9 60%, #e3f2fd 85%, #fff 100%);
+}
+[data-scene="snow"] .hero-eyebrow,
+[data-scene="snow"] .gallery-hero .hero-eyebrow { background: rgba(21,101,192,0.15); color: #1565c0; }
+[data-scene="snow"] h1, [data-scene="snow"] h2 { color: #0d47a1; }
+
+/* ---- 10. Monsoon ---- */
+[data-scene="monsoon"] .hero-with-photos,
+[data-scene="monsoon"] .gallery-hero,
+[data-scene="monsoon"] .about-hero,
+[data-scene="monsoon"] .post-hero {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 300'%3E%3Cline x1='100' y1='0' x2='80' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.3'/%3E%3Cline x1='240' y1='0' x2='220' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.25'/%3E%3Cline x1='380' y1='0' x2='360' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.3'/%3E%3Cline x1='520' y1='0' x2='500' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.2'/%3E%3Cline x1='660' y1='0' x2='640' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.3'/%3E%3Cline x1='800' y1='0' x2='780' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.25'/%3E%3Cline x1='940' y1='0' x2='920' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.3'/%3E%3Cline x1='1080' y1='0' x2='1060' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.2'/%3E%3Cline x1='1220' y1='0' x2='1200' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.3'/%3E%3Cline x1='1360' y1='0' x2='1340' y2='300' stroke='%23b0bec5' stroke-width='1' opacity='0.25'/%3E%3C/svg%3E") center/cover,
+    linear-gradient(to bottom, #263238 0%, #37474f 30%, #546e7a 60%, #607d8b 80%, #78909c 100%);
+}
+[data-scene="monsoon"] h1, [data-scene="monsoon"] h2 { color: #fff; }
+[data-scene="monsoon"] .hero-sub, [data-scene="monsoon"] .gallery-hero p { color: rgba(255,255,255,0.8); }
+[data-scene="monsoon"] .hero-eyebrow,
+[data-scene="monsoon"] .gallery-hero .hero-eyebrow { background: rgba(255,255,255,0.15); color: #cfd8dc; }
+
+/* Scene hero text card on home page */
+[data-scene] .hero-center {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+[data-theme="dark"][data-scene] .hero-center {
+  background: rgba(15,15,26,0.82) !important;
 }

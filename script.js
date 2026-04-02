@@ -36,6 +36,20 @@ const colorThemes = [
   { id: 'emerald', label: 'Emerald', color: '#059669' },
 ];
 
+const sceneThemes = [
+  { id: 'none',      label: 'Default',      gradient: 'var(--bg-secondary)',                                                   icon: '🏠' },
+  { id: 'mountains', label: 'Mountains',    gradient: 'linear-gradient(to bottom,#87ceeb,#6b8e9f,#4a7c59,#2d4a2e)',           icon: '🏔️' },
+  { id: 'spiritual', label: 'Spiritual',    gradient: 'linear-gradient(135deg,#fff8e1,#ffe082,#ffb300,#e65100)',               icon: '🕉️' },
+  { id: 'ocean',     label: 'Ocean',        gradient: 'linear-gradient(to bottom,#006064,#00acc1,#80deea)',                   icon: '🌊' },
+  { id: 'forest',    label: 'Forest',       gradient: 'linear-gradient(to bottom,#1b5e20,#388e3c,#4caf50)',                   icon: '🌿' },
+  { id: 'sunset',    label: 'Sunset',       gradient: 'linear-gradient(to bottom,#311b92,#9c27b0,#f44336,#ff9800,#ffeb3b)',   icon: '🌅' },
+  { id: 'nightsky',  label: 'Night Sky',    gradient: 'linear-gradient(to bottom,#000010,#0a0a2e,#1a237e)',                   icon: '🌌' },
+  { id: 'blossom',   label: 'Cherry Blossom', gradient: 'linear-gradient(135deg,#fce4ec,#f48fb1,#f06292)',                   icon: '🌸' },
+  { id: 'desert',    label: 'Desert',       gradient: 'linear-gradient(to bottom,#1565c0,#42a5f5,#ffa726,#e65100)',           icon: '🏜️' },
+  { id: 'snow',      label: 'Himalayan Snow', gradient: 'linear-gradient(to bottom,#1565c0,#90caf9,#e3f2fd,#fff)',            icon: '❄️' },
+  { id: 'monsoon',   label: 'Monsoon',      gradient: 'linear-gradient(to bottom,#263238,#546e7a,#78909c)',                   icon: '🌧️' },
+];
+
 function applyColorTheme(id) {
   if (id === 'purple') {
     document.documentElement.removeAttribute('data-color');
@@ -43,8 +57,20 @@ function applyColorTheme(id) {
     document.documentElement.setAttribute('data-color', id);
   }
   localStorage.setItem('colorTheme', id);
-  document.querySelectorAll('.swatch').forEach(s => {
+  document.querySelectorAll('.swatch[data-theme]').forEach(s => {
     s.classList.toggle('active', s.dataset.theme === id);
+  });
+}
+
+function applyScene(id) {
+  if (id === 'none') {
+    document.documentElement.removeAttribute('data-scene');
+  } else {
+    document.documentElement.setAttribute('data-scene', id);
+  }
+  localStorage.setItem('sceneTheme', id);
+  document.querySelectorAll('.scene-swatch').forEach(s => {
+    s.classList.toggle('active', s.dataset.scene === id);
   });
 }
 
@@ -56,17 +82,24 @@ function buildThemePicker() {
   const wrap = document.createElement('div');
   wrap.className = 'theme-picker-wrap';
   wrap.innerHTML = `
-    <button class="theme-picker-btn" id="themePickerBtn" aria-label="Change theme colour">🎨</button>
+    <button class="theme-picker-btn" id="themePickerBtn" aria-label="Change theme">🎨</button>
     <div class="theme-palette" id="themePalette">
-      <h4>Choose Theme</h4>
+      <h4>Accent Colour</h4>
       <div class="theme-swatches">
         ${colorThemes.map(t => `
           <div class="swatch" data-theme="${t.id}" title="${t.label}"
             style="background:${t.color}"></div>`).join('')}
       </div>
+      <h4 style="margin-top:14px;">Background Scene</h4>
+      <div class="theme-swatches scene-swatches">
+        ${sceneThemes.map(t => `
+          <div class="swatch scene-swatch" data-scene="${t.id}" title="${t.label}"
+            style="background:${t.gradient}; font-size:0.9rem; display:flex; align-items:center; justify-content:center;">
+            <span style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.5))">${t.icon}</span>
+          </div>`).join('')}
+      </div>
     </div>`;
 
-  // Insert before theme toggle
   const themeToggleBtn = navActions.querySelector('.theme-toggle');
   navActions.insertBefore(wrap, themeToggleBtn);
 
@@ -80,18 +113,26 @@ function buildThemePicker() {
     if (p) p.classList.remove('open');
   });
 
-  wrap.querySelectorAll('.swatch').forEach(swatch => {
+  wrap.querySelectorAll('.swatch[data-theme]').forEach(swatch => {
     swatch.addEventListener('click', e => {
       e.stopPropagation();
       applyColorTheme(swatch.dataset.theme);
-      document.getElementById('themePalette').classList.remove('open');
+    });
+  });
+
+  wrap.querySelectorAll('.scene-swatch').forEach(swatch => {
+    swatch.addEventListener('click', e => {
+      e.stopPropagation();
+      applyScene(swatch.dataset.scene);
     });
   });
 }
 
-// Restore saved colour theme
+// Restore saved themes
 const savedColor = localStorage.getItem('colorTheme') || 'purple';
 applyColorTheme(savedColor);
+const savedScene = localStorage.getItem('sceneTheme') || 'none';
+applyScene(savedScene);
 buildThemePicker();
 
 // ===== Hamburger Menu (desktop only — mobile shows links directly) =====
