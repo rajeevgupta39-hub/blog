@@ -85,69 +85,104 @@ function applyScene(id) {
   } else {
     document.documentElement.setAttribute('data-scene', id);
   }
+  // Activate full-page background layer
+  const pageBg = document.getElementById('pageBg');
+  if (pageBg) pageBg.classList.toggle('active', id !== 'none');
+
   localStorage.setItem('sceneTheme', id);
   document.querySelectorAll('.scene-swatch').forEach(s => {
     s.classList.toggle('active', s.dataset.scene === id);
   });
 }
 
-// Inject theme picker into nav-actions
+// Build full-page background element
+function buildPageBg() {
+  if (document.getElementById('pageBg')) return;
+  const el = document.createElement('div');
+  el.id = 'pageBg';
+  el.className = 'page-bg';
+  document.body.insertBefore(el, document.body.firstChild);
+}
+
+// Build theme picker — centered modal
 function buildThemePicker() {
   const navActions = document.querySelector('.nav-actions');
   if (!navActions) return;
 
-  const wrap = document.createElement('div');
-  wrap.className = 'theme-picker-wrap';
-  wrap.innerHTML = `
-    <button class="theme-picker-btn" id="themePickerBtn" aria-label="Change theme">🎨</button>
-    <div class="theme-palette" id="themePalette">
-      <h4>Accent Colour</h4>
-      <div class="theme-swatches">
-        ${colorThemes.map(t => `
-          <div class="swatch" data-theme="${t.id}" title="${t.label}"
-            style="background:${t.color}"></div>`).join('')}
+  // Add 🎨 button to nav
+  const btn = document.createElement('button');
+  btn.className = 'theme-picker-btn';
+  btn.id = 'themePickerBtn';
+  btn.setAttribute('aria-label', 'Customise theme');
+  btn.textContent = '🎨';
+  const themeToggleBtn = navActions.querySelector('.theme-toggle');
+  navActions.insertBefore(btn, themeToggleBtn);
+
+  // Build modal
+  const backdrop = document.createElement('div');
+  backdrop.className = 'theme-modal-backdrop';
+  backdrop.id = 'themeModalBackdrop';
+  backdrop.innerHTML = `
+    <div class="theme-palette" id="themePalette" role="dialog" aria-label="Customise theme">
+      <div class="theme-palette-header">
+        <h3>🎨 Customise Theme</h3>
+        <button class="theme-palette-close" id="themePaletteClose" aria-label="Close">✕</button>
       </div>
-      <h4 style="margin-top:14px;">Background Scene</h4>
-      <div class="theme-swatches scene-swatches">
-        ${sceneThemes.map(t => `
-          <div class="swatch scene-swatch" data-scene="${t.id}" title="${t.label}"
-            style="background:${t.gradient}; font-size:0.9rem; display:flex; align-items:center; justify-content:center;">
-            <span style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.5))">${t.icon}</span>
-          </div>`).join('')}
+      <div class="theme-section">
+        <h4>Accent Colour</h4>
+        <div class="theme-swatches">
+          ${colorThemes.map(t => `
+            <div class="swatch" data-theme="${t.id}" title="${t.label}"
+              style="background:${t.color}"></div>`).join('')}
+        </div>
+      </div>
+      <div class="theme-section">
+        <h4>Background Scene</h4>
+        <div class="theme-swatches scene-swatches">
+          ${sceneThemes.map(t => `
+            <div class="swatch scene-swatch" data-scene="${t.id}" title="${t.label}"
+              style="background:${t.gradient};">
+              <span style="font-size:1.1rem;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.6))">${t.icon}</span>
+            </div>`).join('')}
+        </div>
       </div>
     </div>`;
+  document.body.appendChild(backdrop);
 
-  const themeToggleBtn = navActions.querySelector('.theme-toggle');
-  navActions.insertBefore(wrap, themeToggleBtn);
-
-  document.getElementById('themePickerBtn').addEventListener('click', e => {
+  // Open modal
+  btn.addEventListener('click', e => {
     e.stopPropagation();
-    document.getElementById('themePalette').classList.toggle('open');
+    backdrop.classList.add('open');
   });
 
-  document.addEventListener('click', () => {
-    const p = document.getElementById('themePalette');
-    if (p) p.classList.remove('open');
+  // Close on backdrop click or close button
+  backdrop.addEventListener('click', e => {
+    if (e.target === backdrop) backdrop.classList.remove('open');
+  });
+  document.getElementById('themePaletteClose').addEventListener('click', () => {
+    backdrop.classList.remove('open');
   });
 
-  wrap.querySelectorAll('.swatch[data-theme]').forEach(swatch => {
-    swatch.addEventListener('click', e => {
-      e.stopPropagation();
-      applyColorTheme(swatch.dataset.theme);
-    });
+  // Keyboard close
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') backdrop.classList.remove('open');
   });
 
-  wrap.querySelectorAll('.scene-swatch').forEach(swatch => {
-    swatch.addEventListener('click', e => {
-      e.stopPropagation();
-      applyScene(swatch.dataset.scene);
-    });
+  // Colour swatches
+  backdrop.querySelectorAll('.swatch[data-theme]').forEach(s => {
+    s.addEventListener('click', () => applyColorTheme(s.dataset.theme));
+  });
+
+  // Scene swatches
+  backdrop.querySelectorAll('.scene-swatch').forEach(s => {
+    s.addEventListener('click', () => applyScene(s.dataset.scene));
   });
 }
 
 // Restore saved themes
 const savedColor = localStorage.getItem('colorTheme') || 'purple';
 applyColorTheme(savedColor);
+buildPageBg();
 const savedScene = localStorage.getItem('sceneTheme') || 'none';
 applyScene(savedScene);
 buildThemePicker();
