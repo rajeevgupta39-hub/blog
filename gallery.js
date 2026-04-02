@@ -1,11 +1,26 @@
-// ===================================================
-// GALLERY DATA — Add your places and photos here
-// ===================================================
-// HOW TO ADD PHOTOS:
-//   1. Create a folder: blog/images/chanderi/
-//   2. Add photos:      blog/images/chanderi/1.jpg, 2.jpg, 3.jpg ...
-//   3. Update the photos array below for that place
-// ===================================================
+/*
+ * ================================================================
+ *  RAJEEV KUMAR GUPTA — Gallery Script
+ *  rajeevfrombarhi.in
+ * ================================================================
+ *  HOW TO ADD YOUR PHOTOS
+ *  ─────────────────────────────────────────────────────────────
+ *  1. Create a folder:  blog/images/chanderi/
+ *  2. Add your photos:  1.jpg, 2.jpg, fort.jpg  (any name)
+ *  3. Update the photos array below for that place:
+ *       photos: [
+ *         { src: 'images/chanderi/1.jpg', caption: 'Chanderi Fort' },
+ *       ]
+ * ================================================================
+ *  01. Gallery Data (places & photos)
+ *  02. Gallery Engine — Render Albums
+ *  03. Album Modal (open / close)
+ *  04. View Switcher (Grid / Masonry / Slideshow)
+ *  05. Lightbox
+ *  06. Keyboard Navigation
+ *  07. Region Filters
+ * ================================================================
+ */
 
 const galleryData = [
   {
@@ -246,9 +261,9 @@ const galleryData = [
   }
 ];
 
-// ===================================================
-// GALLERY ENGINE — no need to edit below this line
-// ===================================================
+// ================================================================
+// GALLERY ENGINE — No need to edit below this line
+// ================================================================
 
 let currentPlace = null;
 let currentView = 'grid';

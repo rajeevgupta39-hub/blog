@@ -1,3 +1,35 @@
+/*
+ * ================================================================
+ *  RAJEEV KUMAR GUPTA — Blog Stylesheet
+ *  rajeevfrombarhi.in
+ * ================================================================
+ *  TABLE OF CONTENTS
+ *  ─────────────────────────────────────────────────────────────
+ *  01. CSS Variables (light & dark tokens)
+ *  02. Dark Mode Overrides (hero, footer, buttons, toggle)
+ *  03. Color Themes — Light (10 accent palettes)
+ *  04. Color Themes — Dark  (10 accent palettes)
+ *  05. Theme Picker UI
+ *  06. Reset & Base
+ *  07. Typography
+ *  08. Layout
+ *  09. Header / Navigation
+ *  10. Hero Section (with photos)
+ *  11. Search & Category Filters
+ *  12. Main Layout & Posts Grid
+ *  13. Post Cards
+ *  14. Sidebar Widgets
+ *  15. Footer
+ *  16. Post Page
+ *  17. About Page
+ *  18. Image Protection
+ *  19. Toast & Scroll-to-Top
+ *  20. Responsive Breakpoints
+ *  21. Gallery Page (albums, views, lightbox)
+ *  22. Scenic Background Themes
+ * ================================================================
+ */
+
 /* ===== CSS Variables ===== */
 :root {
   --bg: #ffffff;
@@ -1034,15 +1066,12 @@ img.protected {
   .sidebar { order: -1; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { grid-template-columns: 1fr; }
-  .about-widget { text-align: center; align-items: center; display: flex; flex-direction: column; }
-  .about-widget .img-protect-wrap { margin: 0 auto 14px; }
 }
 
 @media (max-width: 640px) {
   /* Row 1: Brand (left) + Theme toggle (right) */
   /* Row 2: Home, About, Gallery, Newsletter */
   nav { flex-wrap: wrap; height: auto; padding: 10px 0; gap: 0; }
-  .hamburger { display: none; }
   .nav-brand { order: 1; flex: 1; }
   .nav-actions { order: 2; }
   .nav-links {
@@ -1087,9 +1116,6 @@ img.protected {
   .post-nav { flex-direction: column; }
   .post-nav .next { text-align: left; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
-  .about-widget { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .about-widget .img-protect-wrap { margin: 0 auto 14px; display: block; text-align: center; }
-  .about-widget .about-avatar { margin: 0 auto; display: block; }
   .sidebar-card { text-align: center; }
 }
 

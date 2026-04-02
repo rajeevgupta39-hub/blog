@@ -1,3 +1,20 @@
+/*
+ * ================================================================
+ *  RAJEEV KUMAR GUPTA — Blog Scripts
+ *  rajeevfrombarhi.in
+ * ================================================================
+ *  01. Theme Toggle (Dark / Light mode)
+ *  02. Color Theme & Scene Picker
+ *  03. Posts Data & Rendering
+ *  04. Search & Category Filters
+ *  05. Tags Cloud
+ *  06. Newsletter Form
+ *  07. Toast Notification
+ *  08. Scroll to Top
+ *  09. Post Page Loader
+ * ================================================================
+ */
+
 // ===== Theme Toggle =====
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
@@ -134,10 +151,6 @@ applyColorTheme(savedColor);
 const savedScene = localStorage.getItem('sceneTheme') || 'none';
 applyScene(savedScene);
 buildThemePicker();
-
-// ===== Hamburger Menu (desktop only — mobile shows links directly) =====
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
 
 // ===== Posts Data =====
 const posts = [

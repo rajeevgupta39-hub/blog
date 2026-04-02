@@ -1,8 +1,16 @@
-// ===================================================
-// IMAGE PROTECTION — rajeevfrombarhi.in
-// Blocks right-click, drag, keyboard shortcuts,
-// and overlays a watermark on all images.
-// ===================================================
+/*
+ * ================================================================
+ *  RAJEEV KUMAR GUPTA — Image Protection
+ *  rajeevfrombarhi.in
+ * ================================================================
+ *  01. Block Right-Click on images
+ *  02. Block Drag on images
+ *  03. Block keyboard shortcuts (Ctrl+S, F12, PrintScreen…)
+ *  04. Block Print
+ *  05. Wrap each image in transparent shield overlay
+ *  06. Disable text selection on protected targets
+ * ================================================================
+ */
 
 (function () {
   'use strict';
